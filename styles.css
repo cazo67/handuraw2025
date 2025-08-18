@@ -84,6 +84,15 @@ nav {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .nav-toggle span {
@@ -91,6 +100,7 @@ nav {
     height: 3px;
     background: white;
     transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 .nav-toggle.active span:nth-child(1) {
@@ -193,6 +203,104 @@ section {
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+}
+
+/* Announcements Section */
+.announcements {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.announcements::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.announcements .container {
+    position: relative;
+    z-index: 2;
+}
+
+.announcements-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
+.announcement-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.announcement-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.announcement-image {
+    height: 40%;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.image-placeholder {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.announcement-content {
+    padding: 20px;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.announcement-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.announcement-desc {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.announcement-date {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 500;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
 }
 
 /* Events Section */
@@ -498,7 +606,7 @@ section {
 
     /* Navigation Mobile */
     nav {
-        padding: 10px 0;
+        padding: 12px 0;
     }
 
     .nav-container {
@@ -508,6 +616,7 @@ section {
     .nav-toggle {
         display: flex;
         z-index: 1001;
+        position: relative;
     }
 
     .nav-menu {
@@ -586,6 +695,50 @@ section {
     section {
         padding: 60px 0;
         min-height: auto;
+    }
+
+    /* Announcements Mobile - 2 cards per row */
+    .announcements {
+        background-attachment: scroll;
+        padding: 60px 0;
+    }
+
+    .announcements-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .announcement-card {
+        aspect-ratio: 1;
+        min-height: 250px;
+    }
+
+    .announcement-image {
+        height: 35%;
+    }
+
+    .image-placeholder {
+        font-size: 2.5rem;
+    }
+
+    .announcement-content {
+        padding: 15px;
+        height: 65%;
+    }
+
+    .announcement-title {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .announcement-desc {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .announcement-date {
+        font-size: 0.75rem;
     }
 
     /* Events Section Mobile */
@@ -721,7 +874,6 @@ section {
         background-attachment: scroll;
     }
 }
-}
 
 @media (max-width: 480px) {
     /* Extra small mobile devices */
@@ -738,6 +890,42 @@ section {
     .section-title {
         font-size: 1.8rem;
         padding: 0 15px;
+    }
+
+    /* Announcements - Single column on very small screens */
+    .announcements-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .announcement-card {
+        min-height: 280px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .announcement-image {
+        height: 40%;
+    }
+
+    .image-placeholder {
+        font-size: 2.8rem;
+    }
+
+    .announcement-content {
+        padding: 18px;
+        height: 60%;
+    }
+
+    .announcement-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .announcement-desc {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 3;
     }
 
     /* Events - Stack vertically on very small screens */
@@ -861,5 +1049,14 @@ section {
     .nav-menu a {
         padding: 10px 20px;
         font-size: 1rem;
+    }
+
+    .announcements-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+    
+    .announcement-card {
+        min-height: 200px;
     }
 }
