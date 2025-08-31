@@ -19,14 +19,22 @@
                 </div>
             </div>
         </div>
-        <nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-container">
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#highlights">Highlights</a></li>
-                <li><a href="#announcements">Announcements</a></li>
-                <li><a href="#rankings">Rankings</a></li>
-                <li><a href="#sponsors">Sponsors</a></li>
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#events" onclick="closeMobileMenu()">Events</a></li>
+                <li><a href="#highlights" onclick="closeMobileMenu()">Highlights</a></li>
+                <li><a href="#announcements" onclick="closeMobileMenu()">Announcements</a></li>
+                <li><a href="#rankings" onclick="closeMobileMenu()">Rankings</a></li>
+                <li><a href="#sponsors" onclick="closeMobileMenu()">Sponsors</a></li>
             </ul>
         </nav>
         <div class="event-date">Dec 15-17, 2025</div>

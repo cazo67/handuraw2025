@@ -1,3 +1,28 @@
+// Mobile menu functionality
+function toggleMobileMenu() {
+    const navContainer = document.querySelector('.nav-container');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    navContainer.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (navContainer.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    const navContainer = document.querySelector('.nav-container');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    navContainer.classList.remove('active');
+    menuToggle.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 // DOM Content Loaded functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize announcements with correct sorting
@@ -28,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeGallery();
+            closeMobileMenu();
         }
     });
 
@@ -38,15 +64,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                // Adjust scroll position for fixed header
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
 
-    // Add scroll effect to header
+    // Enhanced scroll effect for header
+    let lastScrollTop = 0;
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
             header.style.background = 'rgba(255, 255, 255, 0.95)';
             header.style.backdropFilter = 'blur(20px)';
             header.style.boxShadow = '0 8px 30px rgba(47, 79, 47, 0.1)';
@@ -55,7 +91,18 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.backdropFilter = 'blur(15px)';
             header.style.boxShadow = 'none';
         }
-    });
+        
+        // Hide header on scroll down, show on scroll up (mobile optimization)
+        if (window.innerWidth <= 768) {
+            if (scrollTop > lastScrollTop && scrollTop > 150) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, false);
 
     // Add intersection observer for animations
     const observerOptions = {
@@ -148,7 +195,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (item.classList.contains('first')) {
                     setTimeout(() => {
                         const rankNumber = item.querySelector('.rank-number');
-                        rankNumber.style.animation = 'goldGlow 2s ease-in-out infinite alternate';
+                        if (rankNumber) {
+                            rankNumber.style.animation = 'goldGlow 2s ease-in-out infinite alternate';
+                        }
                     }, 500);
                 }
             }, 500 + (index * 300));
@@ -159,13 +208,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.rank-item').forEach(item => {
         item.addEventListener('mouseenter', function() {
             if (!this.classList.contains('podium-rank')) {
-                this.querySelector('.team-name').style.background = 'rgba(154, 205, 50, 0.1)';
+                const teamName = this.querySelector('.team-name');
+                if (teamName) {
+                    teamName.style.background = 'rgba(154, 205, 50, 0.1)';
+                }
             }
         });
         
         item.addEventListener('mouseleave', function() {
             if (!this.classList.contains('podium-rank')) {
-                this.querySelector('.team-name').style.background = 'rgba(255, 255, 255, 0.8)';
+                const teamName = this.querySelector('.team-name');
+                if (teamName) {
+                    teamName.style.background = 'rgba(255, 255, 255, 0.8)';
+                }
             }
         });
     });
@@ -174,17 +229,86 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
             console.log('Image failed to load:', this.src);
+            // You could add a placeholder image here if desired
         });
     });
 
     // Keyboard navigation for slideshow
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            showSlide(currentSlideIndex);
-        } else if (e.key === 'ArrowRight') {
-            showSlide(currentSlideIndex + 2);
+        const galleryModal = document.getElementById('galleryModal');
+        if (galleryModal && galleryModal.style.display === 'flex') {
+            if (e.key === 'ArrowLeft') {
+                prevImage();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
+            }
+        } else {
+            if (e.key === 'ArrowLeft') {
+                showSlide(currentSlideIndex);
+            } else if (e.key === 'ArrowRight') {
+                showSlide(currentSlideIndex + 2);
+            }
         }
     });
+
+    // Touch/swipe support for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    function handleGesture() {
+        const swipeThreshold = 50;
+        const swipeDistance = touchEndX - touchStartX;
+        
+        if (Math.abs(swipeDistance) > swipeThreshold) {
+            const galleryModal = document.getElementById('galleryModal');
+            if (galleryModal && galleryModal.style.display === 'flex') {
+                if (swipeDistance > 0) {
+                    prevImage();
+                } else {
+                    nextImage();
+                }
+            } else {
+                const slideshow = document.querySelector('.highlights-slideshow');
+                if (slideshow) {
+                    if (swipeDistance > 0) {
+                        showSlide(currentSlideIndex);
+                    } else {
+                        showSlide(currentSlideIndex + 2);
+                    }
+                }
+            }
+        }
+    }
+    
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleGesture();
+    });
+
+    // Handle orientation change
+    window.addEventListener('orientationchange', function() {
+        setTimeout(() => {
+            // Recalculate positions after orientation change
+            window.scrollTo(0, window.scrollY);
+        }, 100);
+    });
+
+    // Optimize touch interactions for mobile
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('.event-card, .announcement-card, .see-more-btn').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+    }
 });
 
 // Slideshow functionality
@@ -208,10 +332,32 @@ function currentSlide(n) {
     showSlide(n);
 }
 
-// Auto-advance slideshow
-setInterval(() => {
-    showSlide(currentSlideIndex + 2);
-}, 5000);
+// Auto-advance slideshow with pause on hover/focus
+let slideshowTimer;
+
+function startSlideshow() {
+    slideshowTimer = setInterval(() => {
+        showSlide(currentSlideIndex + 2);
+    }, 5000);
+}
+
+function stopSlideshow() {
+    clearInterval(slideshowTimer);
+}
+
+// Start slideshow
+startSlideshow();
+
+// Pause slideshow on hover/focus for better accessibility
+document.addEventListener('DOMContentLoaded', function() {
+    const slideshow = document.querySelector('.highlights-slideshow');
+    if (slideshow) {
+        slideshow.addEventListener('mouseenter', stopSlideshow);
+        slideshow.addEventListener('mouseleave', startSlideshow);
+        slideshow.addEventListener('focusin', stopSlideshow);
+        slideshow.addEventListener('focusout', startSlideshow);
+    }
+});
 
 // Enhanced announcement data with proper numbering and sorting
 const announcements = [
@@ -236,7 +382,7 @@ const announcements = [
             "3. Prepare your products and celebrate with us!<br><br>" +
             "<a href='https://forms.gle/sCfqCVcybcyYiBhs6' target='_blank'>Click here to register</a><br><br>" +
             "<em>Note:</em> We only accept student-entrepreneurs selling dry goods and products.<br><br>" +
-            "Let’s make this Foundation Day a bountiful and memorable harvest celebration for the CMU community!<br><br>" +
+            "Let's make this Foundation Day a bountiful and memorable harvest celebration for the CMU community!<br><br>" +
             "#HANDURAW2025<br>" +
             "#THRIVINGCMU<br>" +
             "#LeadtoServe",
@@ -253,38 +399,7 @@ const announcements = [
     //     date: "Posted: Dec 3, 2025",
     //     alt: "Volunteer Program"
     // },
-    // {
-    //     id: 4,
-    //     title: "Equipment Upgrade Completed",
-    //     body: "All sports equipment has been upgraded to professional standards. New gear includes premium basketballs, soccer balls, swimming equipment, and tennis rackets. This ensures the best possible experience for all participants.",
-    //     photos: ["announcement5.png"],
-    //     date: "Posted: Dec 2, 2025",
-    //     alt: "Equipment Upgrade"
-    // },
-    // {
-    //     id: 5,
-    //     title: "Safety Protocols Updated",
-    //     body: "Enhanced safety measures have been implemented across all venues. Medical teams will be stationed at every location, and emergency procedures have been reviewed and updated for maximum participant safety.",
-    //     photos: ["announcement6.png"],
-    //     date: "Posted: Dec 1, 2025",
-    //     alt: "Safety Protocols"
-    // },
-    // {
-    //     id: 6,
-    //     title: "Venue Capacity Expanded",
-    //     body: "Due to overwhelming response, we have expanded the capacity of all event venues. Additional seating has been installed to accommodate more spectators, ensuring everyone can witness these incredible competitions.",
-    //     photos: ["announcement7.png"],
-    //     date: "Posted: Nov 30, 2025",
-    //     alt: "Venue Expansion"
-    // },
-    // {
-    //     id: 7,
-    //     title: "Live Streaming Available",
-    //     body: "Can't make it to the venue? No problem! All championship events will be available via high-quality live streaming on our official website. Premium subscribers get access to multiple camera angles and expert commentary.",
-    //     photos: ["announcement8.png"],
-    //     date: "Posted: Nov 28, 2025",
-    //     alt: "Live Streaming"
-    // }
+    // Additional announcement entries would go here...
 ];
 
 // Define additional events for expandable content
@@ -297,7 +412,6 @@ const additionalEvents = [
         image: "events/benchant.jpg",
         alt: "Benchant Image"
     },
-
     {
         title: "Hiphop",
         meta: "Sep 19, 2025 | Univ Convention Center",
@@ -306,7 +420,6 @@ const additionalEvents = [
         image: "events/hiphop.jpg",
         alt: "HiHOP Image"
     },
-
     {
         title: "Drag Race",
         meta: "Sep 19, 2025 | Univ Convention Center",
@@ -315,17 +428,14 @@ const additionalEvents = [
         image: "events/dragrace.jpg",
         alt: "Drag Race Image"
     },
-
     {
         title: "University Acquintance",
         meta: "Sep 19, 2025 | Univ Convention Center",
         description: "Watch out for the Acquaintance Party a night of fun, music, and unforgettable connections!",
         heads: "Heads: Jaime Alambatin, Eduardo Tequillo, Marissa Ismael",
         image: "events/acquintance.jpg",
-        alt: "Drag Race Image"
+        alt: "Acquintance Image"
     },
-
-
 ];
 
 let currentAnnouncementIndex = 0;
@@ -355,7 +465,9 @@ function checkAndShowSeeMoreButtons() {
     // Show events button if there are more than 6 total events or hidden events exist
     if (allEventCards.length > 6 || visibleEventCards.length < allEventCards.length) {
         setTimeout(() => {
-            eventsToggleContainer.classList.add('visible');
+            if (eventsToggleContainer) {
+                eventsToggleContainer.classList.add('visible');
+            }
         }, 1000);
     }
     
@@ -363,15 +475,19 @@ function checkAndShowSeeMoreButtons() {
     const announcementsToggleContainer = document.querySelector('#announcements .see-more-container');
     if (announcements.length > 6) {
         setTimeout(() => {
-            announcementsToggleContainer.classList.add('visible');
+            if (announcementsToggleContainer) {
+                announcementsToggleContainer.classList.add('visible');
+            }
         }, 1200);
     }
 }
 
-// Enhanced Events Toggle Function
+// Enhanced Events Toggle Function with better mobile performance
 function toggleEvents() {
     const eventsGrid = document.getElementById('eventsGrid');
     const toggleBtn = document.getElementById('eventsToggleBtn');
+    
+    if (!eventsGrid || !toggleBtn) return;
     
     if (!eventsExpanded) {
         // Show hidden events first, then add additional events if needed
@@ -450,10 +566,12 @@ function toggleEvents() {
     }
 }
 
-// Enhanced Announcements Toggle Function
+// Enhanced Announcements Toggle Function with better mobile performance
 function toggleAnnouncements() {
     const announcementsGrid = document.getElementById('announcementsGrid');
     const toggleBtn = document.getElementById('announcementsToggleBtn');
+    
+    if (!announcementsGrid || !toggleBtn) return;
     
     if (!announcementsExpanded) {
         // Show remaining announcements beyond the first 6
@@ -499,15 +617,14 @@ function toggleAnnouncements() {
     }
 }
 
-// Create event card function
+// Create event card function with error handling
 function createEventCard(eventData) {
     const card = document.createElement('div');
     card.className = 'event-card';
     
     card.innerHTML = `
         <div class="event-image">
-            <img src="${eventData.image}" alt="${eventData.alt}" loading="lazy">
-
+            <img src="${eventData.image}" alt="${eventData.alt}" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="event-content">
             <div class="event-title">${eventData.title}</div>
@@ -523,6 +640,8 @@ function createEventCard(eventData) {
 // Enhanced initialization function for announcements
 function initializeAnnouncements() {
     const announcementsGrid = document.getElementById('announcementsGrid');
+    if (!announcementsGrid) return;
+    
     const sortedAnnouncements = sortAnnouncementsForDisplay();
     
     // Clear existing content
@@ -537,15 +656,26 @@ function initializeAnnouncements() {
     });
 }
 
-// Create announcement card function
+// Create announcement card function with enhanced mobile support
 function createAnnouncementCard(announcement, index) {
     const card = document.createElement('div');
     card.className = 'announcement-card';
     card.onclick = () => openAnnouncement(index);
     
+    // Add touch feedback for mobile
+    if ('ontouchstart' in window) {
+        card.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        card.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+    }
+    
     card.innerHTML = `
         <div class="announcement-image">
-            <img src="${announcement.photos[0]}" alt="${announcement.alt}" loading="lazy">
+            <img src="${announcement.photos[0]}" alt="${announcement.alt}" loading="lazy" onerror="this.style.display='none'">
             <span class="announcement-date">${announcement.date}</span>
         </div>
     `;
@@ -553,7 +683,7 @@ function createAnnouncementCard(announcement, index) {
     return card;
 }
 
-// Gallery functionality
+// Enhanced Gallery functionality with mobile optimizations
 function openAnnouncement(index) {
     const sortedAnnouncements = sortAnnouncementsForDisplay();
     
@@ -561,23 +691,33 @@ function openAnnouncement(index) {
     currentPhotoIndex = 0;
     const announcement = sortedAnnouncements[index];
     
-    document.getElementById('galleryTitle').textContent = announcement.title;
-    document.getElementById('galleryBody').innerHTML = announcement.body;
-
+    if (!announcement) return;
+    
+    const galleryTitle = document.getElementById('galleryTitle');
+    const galleryBody = document.getElementById('galleryBody');
+    const galleryModal = document.getElementById('galleryModal');
+    
+    if (galleryTitle) galleryTitle.textContent = announcement.title;
+    if (galleryBody) galleryBody.innerHTML = announcement.body;
     
     updateAnnouncementPhoto();
-    document.getElementById('galleryModal').style.display = 'flex';
+    
+    if (galleryModal) {
+        galleryModal.style.display = 'flex';
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
+    }
     
     // Show/hide navigation arrows based on number of photos
     const prevBtn = document.querySelector('.gallery-nav.prev');
     const nextBtn = document.querySelector('.gallery-nav.next');
     
     if (announcement.photos.length > 1) {
-        prevBtn.style.display = 'flex';
-        nextBtn.style.display = 'flex';
+        if (prevBtn) prevBtn.style.display = 'flex';
+        if (nextBtn) nextBtn.style.display = 'flex';
     } else {
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
     }
 }
 
@@ -586,25 +726,146 @@ function updateAnnouncementPhoto() {
     const announcement = sortedAnnouncements[currentAnnouncementIndex];
     const imageContent = document.getElementById('galleryImageContent');
     
-    if (announcement.photos[currentPhotoIndex]) {
-        imageContent.innerHTML = `<img src="${announcement.photos[currentPhotoIndex]}" alt="${announcement.title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 15px;">`;
+    if (announcement && announcement.photos[currentPhotoIndex] && imageContent) {
+        imageContent.innerHTML = `<img src="${announcement.photos[currentPhotoIndex]}" alt="${announcement.title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 15px;" onerror="this.style.display='none'">`;
     }
 }
 
 function closeGallery() {
-    document.getElementById('galleryModal').style.display = 'none';
+    const galleryModal = document.getElementById('galleryModal');
+    if (galleryModal) {
+        galleryModal.style.display = 'none';
+        // Restore body scroll
+        document.body.style.overflow = '';
+    }
 }
 
 function prevImage() {
     const sortedAnnouncements = sortAnnouncementsForDisplay();
     const announcement = sortedAnnouncements[currentAnnouncementIndex];
-    currentPhotoIndex = (currentPhotoIndex - 1 + announcement.photos.length) % announcement.photos.length;
-    updateAnnouncementPhoto();
+    if (announcement && announcement.photos.length > 1) {
+        currentPhotoIndex = (currentPhotoIndex - 1 + announcement.photos.length) % announcement.photos.length;
+        updateAnnouncementPhoto();
+    }
 }
 
 function nextImage() {
     const sortedAnnouncements = sortAnnouncementsForDisplay();
     const announcement = sortedAnnouncements[currentAnnouncementIndex];
-    currentPhotoIndex = (currentPhotoIndex + 1) % announcement.photos.length;
-    updateAnnouncementPhoto();
+    if (announcement && announcement.photos.length > 1) {
+        currentPhotoIndex = (currentPhotoIndex + 1) % announcement.photos.length;
+        updateAnnouncementPhoto();
+    }
+}
+
+// Enhanced resize handler for mobile optimization
+function handleResize() {
+    const navContainer = document.querySelector('.nav-container');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    // Close mobile menu when screen becomes large
+    if (window.innerWidth > 768) {
+        if (navContainer) {
+            navContainer.classList.remove('active');
+            navContainer.style.display = '';
+        }
+        if (menuToggle) {
+            menuToggle.classList.remove('active');
+        }
+        document.body.style.overflow = '';
+    }
+    
+    // Reset header transform on resize
+    const header = document.querySelector('.header');
+    if (header && window.innerWidth > 768) {
+        header.style.transform = '';
+    }
+}
+
+// Debounced resize handler for better performance
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(handleResize, 250);
+});
+
+// Enhanced scroll performance
+let ticking = false;
+
+function updateScrollElements() {
+    const header = document.querySelector('.header');
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(20px)';
+        header.style.boxShadow = '0 8px 30px rgba(47, 79, 47, 0.1)';
+    } else {
+        header.style.background = 'rgba(255, 255, 255, 0.1)';
+        header.style.backdropFilter = 'blur(15px)';
+        header.style.boxShadow = 'none';
+    }
+    
+    ticking = false;
+}
+
+function requestScrollUpdate() {
+    if (!ticking) {
+        requestAnimationFrame(updateScrollElements);
+        ticking = true;
+    }
+}
+
+// Use optimized scroll handler
+window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+
+// Utility function to check if device is mobile
+function isMobileDevice() {
+    return window.innerWidth <= 768 || 'ontouchstart' in window;
+}
+
+// Performance optimization: Reduce animations on low-end devices
+function optimizeForDevice() {
+    const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+    const isSlowConnection = navigator.connection && (navigator.connection.effectiveType === 'slow-2g' || navigator.connection.effectiveType === '2g');
+    
+    if (isLowEnd || isSlowConnection) {
+        // Reduce or disable heavy animations
+        document.documentElement.style.setProperty('--animation-duration', '0.1s');
+        
+        // Disable particle effects
+        const heroAfter = document.querySelector('.hero::after');
+        if (heroAfter) {
+            heroAfter.style.animation = 'none';
+        }
+    }
+}
+
+// Call optimization on load
+document.addEventListener('DOMContentLoaded', optimizeForDevice);
+
+// Preload critical images for better performance
+function preloadCriticalImages() {
+    const criticalImages = [
+        'maintitle.png',
+        'bg1.png',
+        'logo/SSCLogo.png',
+        'logo/HandurawLogo.png'
+    ];
+    
+    criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
+// Preload images when page loads
+document.addEventListener('DOMContentLoaded', preloadCriticalImages);
+
+// Service Worker registration for better mobile performance (optional)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        // You can uncomment this if you want to add a service worker
+        // navigator.serviceWorker.register('/sw.js');
+    });
 }
