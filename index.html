@@ -3,197 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unified Foundation Day</title>
+    <title>Event Management Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-section">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="logo/SSCLogo.png" alt="Logo 1">
+                </div>
+                <div class="logo">
+                    <img src="logo/HandurawLogo.png" alt="Logo 2">
+                </div>
             </div>
-            <ul class="nav-menu" id="navMenu">
+        </div>
+        <nav>
+            <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="#poster">Poster</a></li>
-                <li><a href="#ranking">Rankings</a></li>
+                <li><a href="#highlights">Highlights</a></li>
+                <li><a href="#announcements">Announcements</a></li>
+                <li><a href="#rankings">Rankings</a></li>
                 <li><a href="#sponsors">Sponsors</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+        <div class="event-date">Dec 15-17, 2025</div>
+    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="home">
-        <div class="home-content">
-            <h1 class="home-title">Unified Foundation Day</h1>
-            <p class="home-subtitle">Celebrating Unity, Diversity, and Excellence</p>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+        </section>
 
-    <!-- Events Section -->
-    <section id="events" class="events">
-        <div class="container">
-            <h2 class="section-title">Events</h2>
-            <div class="events-container">
-                <div class="event-card subtle" style="background-image: url('parade.jpg') ">
-                    <h3 class="event-title">Parade</h3>
-                    <p class="event-description">A grand parade featuring colorful floats, marching bands, and vibrant displays representing each department and organization.</p>
-                </div>
-                <div class="event-card subtle" style="background-image: url('street\ dance.jpg') ">
-                    <h3 class="event-title">Street Dancing & Ground Performance</h3>
-                    <p class="event-description">Dynamic street performances showcasing traditional and modern dance styles with spectacular choreography and costumes.</p>
-                </div>
-                <div class="event-card subtle" style="background-image: url('benchant.jpg') ">
-                    <h3 class="event-title">Bench Chant</h3>
-                    <p class="event-description">Spirited chanting competitions where teams showcase their creativity, rhythm, and school pride through synchronized performances.</p>
-                </div>
-                <div class="event-card subtle" style="background-image: url('band.jpg') ">
-                    <h3 class="event-title">Band Night</h3>
-                    <p class="event-description">An evening of live music featuring local bands and university talents performing across various genres to entertain the crowd.</p>
-                </div>
+        <!-- Featured Events Section -->
+        <section id="events" class="section">
+            <h2 class="section-title">Featured Events</h2>
+            <div class="events-grid" id="eventsGrid">
+
+                <!-- Streent Dancing and Parade Float -->
                 <div class="event-card">
-                    <h3 class="event-title">Literary Competitions</h3>
-                    <p class="event-description">Showcasing intellectual prowess through poetry, essay writing, debate, and other literary competitions for students.</p>
+                    <div class="event-image">
+                        <img src="events/parade.jpg" alt="Parade" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Street Dancing & Parade Float</div>
+                        <div class="event-meta">Sep 15, 2025 | CMU Grounds</div>
+                        <div class="event-description">
+                            Join us for an exhilarating parade featuring synchronized street dancing and paired float showcases
+                        </div>
+                        <div class="event-heads">Heads: John Duksin Delfino, Sheri Love Israel</div>
+                    </div>
                 </div>
+                <!-- Band Night -->
                 <div class="event-card">
-                    <h3 class="event-title">Liga sa UFD</h3>
-                    <p class="event-description">Sports tournaments and athletic competitions bringing together teams from different departments in friendly competition.</p>
+                    <div class="event-image">
+                        <img src="events/band.jpg" alt="Band Night" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Band Night</div>
+                        <div class="event-meta">Sep 15, 2025 | Univ Grandstand</div>
+                        <div class="event-description">
+                           Join us for a vibrant Band Night featuring live musical performances by student bands.
+                        </div>
+                        <div class="event-heads">Heads: Jaliana Sabandal, Crystal Ann Campos</div>
+                    </div>
                 </div>
-                <div class="event-card subtle" style="background-image: url('shorfilm.jpg') ">
-                    <h3 class="event-title">Short Film</h3>
-                    <p class="event-description">Creative short film competition highlighting student filmmaking talents with diverse themes and innovative storytelling.</p>
-                </div>
-                <div class="event-card subtle" style="background-image: url('hiphop.jpg') ">
-                    <h3 class="event-title">Hip-hop Competition</h3>
-                    <p class="event-description">High-energy hip-hop battles featuring breakdancing, rap battles, and freestyle performances from talented participants.</p>
-                </div>
+
+                <!-- Liga sa UFD -->
                 <div class="event-card">
-                    <h3 class="event-title">Drag Race</h3>
-                    <p class="event-description">Glamorous drag performance competition celebrating artistry, creativity, and self-expression through stunning performances.</p>
+                    <div class="event-image">
+                        <img src="events/LIGA.jpg" alt="Aquatic Championships" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Liga sa UFD</div>
+                        <div class="event-meta">Sep 16-17, 2025 | Univeristy Grandstand</div>
+                        <div class="event-description">
+                       Join us for an exciting Liga featuring spirited basketball and volleyball matches that ignite school pride!
+                        </div>
+                        <div class="event-heads">Head: Vincent Philip De La Victoria II</div>
+                    </div>
                 </div>
+
+                <!-- Literary Evnts -->
                 <div class="event-card">
-                    <h3 class="event-title">Acquaintance Party</h3>
-                    <p class="event-description">The grand finale celebration bringing everyone together for dancing, entertainment, and commemorating the foundation day.</p>
+                    <div class="event-image">
+                        <img src="tennis.png" alt="Grand Tennis Open" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Literary Events</div>
+                        <div class="event-meta">Sep 18, 2025 | COE, CAS</div>
+                        <div class="event-description">
+                            Celebrate creativity with literary events like University Debate, Extemporaneous Speech, Storytelling, Essay Writing, Dagliang Talumpati, Pagkukuwento, and Photo Contest!
+                        </div>
+                        <div class="event-heads">Heads: Aeron Marcon, Frenche Pañares</div>
+                    </div>
                 </div>
+
+                <!-- UPDC -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="events/debatecup.png" alt="University Debate Cup" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Univeristy Debate Cup</div>
+                        <div class="event-meta">Sep 18, 2025 | TBA</div>
+                        <div class="event-description">
+                            Join us at the University Debate Cup and witness sharp minds passionately battle it out live for the ultimate championship title, showcasing their wit, logic, and persuasive power!
+                        </div>
+                        <div class="event-heads">Head: Vince Jeffrey Saligue</div>
+                    </div>
+                </div>
+
+                <!-- THE MUSICAL -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="events/musical.jpg" alt="Grand Tennis Open" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Kinse: The Musical</div>
+                        <div class="event-meta">Sep 18, 2025 | CAS Auditorium</div>
+                        <div class="event-description">
+                            Experience a magical night of music and storytelling as talented performers bring heartwarming stories to life with captivating songs, powerful acting, and unforgettable moments on stage!
+                        </div>
+                        <div class="event-heads">Heads: Reynaldo Cortezt, Gneiss Itum</div>
+                    </div>
+                </div>
+                <!-- Additional hidden events for demo -->
+
+                <!-- sHORT FILM -->
+                <div class="event-card hidden">
+                    <div class="event-image">
+                        <img src="events/shortfilm.jpg" alt="Short Film" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Short Film Competition</div>
+                        <div class="event-meta">Dec 16, 2025 | Sports Hall</div>
+                        <div class="event-description">
+                            Dive into the Short Film Competition featuring chilling university horror stories that will keep you on the edge of your seat!
+                        </div>
+                        <div class="event-heads">Head: Carlos Fidel G. Castro</div>
+                    </div>
+                </div>
+
+                <!-- University Parliamentary Debabate ChamprionSHIP -->
+                <!-- <div class="event-card hidden">
+                    <div class="event-image">
+                        <img src="badminton.png" alt="Badminton Open" loading="lazy">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-title">Univ Parliamentary Debate Championship</div>
+                        <div class="event-meta">Sep 19, 2025 | CAS Auditorium</div>
+                        <div class="event-description">
+                            Professional badminton tournament with singles and doubles matches across all skill levels.
+                        </div>
+                        <div class="event-heads">Heads: Vince Jeffrey Saligue</div>
+                    </div>
+                </div> -->
+
             </div>
-        </div>
-    </section>
 
-    <!-- Main Poster Section -->
-    <section id="poster" class="poster">
-        <div class="container">
-            <h2 class="section-title">Main Poster</h2>
-            <div class="poster-container">
-                <p class="poster-description">The official poster showcasing our Unified Foundation Day celebration</p>
+            <div class="see-more-container">
+                <button class="see-more-btn" id="eventsToggleBtn" onclick="toggleEvents()">See More Events</button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Ranking Section -->
-    <section id="ranking" class="ranking">
-        <div class="container">
-            <h2 class="section-title">Top 5 Rankings</h2>
+        <!-- Highlights Section -->
+        <section id="highlights" class="section">
+            <h2 class="section-title">Event Highlights</h2>
+            <div class="highlights-slideshow">
+                <div class="slide" style="background-image: url('highlights/Pagsibol.png')">
+                    <div class="slide-content">
+                        <h3>Pagsibol: Tree Planting</h3>
+                        <p>The USSCO, SSC, and COFESSCO are calling on senior students and passionate volunteers to roll up their sleeves and join our 𝐓𝐫𝐞𝐞 𝐆𝐫𝐨𝐰𝐢𝐧𝐠 𝐀𝐜𝐭𝐢𝐯𝐢𝐭𝐲 this September 17, 2025 at Musuan Eco Park! Let's breathe life back into the earth and create a greener tomorrow—because every tree we plant is a step closer to a more sustainable future. </p><br>
+                        <p> 𝐏𝐫𝐞-𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧 𝐋𝐢𝐧𝐤 𝐇𝐞𝐫𝐞: <a href="https://forms.gle/UaWLFTEusMag17t17" target="_blank" style="color: #007BFF" >Click here</a> </p>
+                    </div>
+                </div>
+                <!-- <div class="slide" style="background-image: url('mainbg.jpg')">
+                    <div class="slide-content">
+                        <h3>Championship Finals</h3>
+                        <p>The most anticipated matches of the tournament where champions are crowned. Witness history in the making as the best athletes compete for ultimate glory and recognition.</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('slide3.jpg')">
+                    <div class="slide-content">
+                        <h3>Awards Ceremony</h3>
+                        <p>Celebrate our champions in the grand awards ceremony. Join us as we honor the dedication, skill, and sportsmanship of all our participants.</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="slideshow-nav">
+                <div class="nav-dot active" onclick="currentSlide(1)"></div>
+                <div class="nav-dot" onclick="currentSlide(2)"></div>
+                <div class="nav-dot" onclick="currentSlide(3)"></div>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section id="announcements" class="section">
+            <h2 class="section-title">Latest Announcements</h2>
+            <div class="announcements-grid" id="announcementsGrid">
+                <!-- Announcements will be populated by JavaScript in correct order -->
+            </div>
+            <div class="see-more-container">
+                <button class="see-more-btn" id="announcementsToggleBtn" onclick="toggleAnnouncements()">See More Announcements</button>
+            </div>
+        </section>
+
+        <!-- Updated Ranking System -->
+        <section id="rankings" class="section">
+            <h2 class="section-title">Team Rankings</h2>
             <div class="ranking-container">
-                <div class="rank-card rank-2">
-                    <div class="rank-content">
-                        <div class="rank-number">2</div>
-                        <div class="rank-name">Team Alpha</div>
+                <!-- Side rankings for 4th and 5th place -->
+                <div class="side-rankings left-side">
+                    <div class="rank-item side-rank">
+                        <div class="team-name">X</div>
+                        <div class="rank-podium fourth">
+                            <div class="rank-number">4</div>
+                        </div>
                     </div>
                 </div>
-                <div class="rank-card rank-1">
-                    <div class="rank-content">
-                        <div class="rank-number">🏆</div>
-                        <div class="rank-name">Team Victory</div>
+
+                <!-- Center podium for top 3 -->
+                <div class="center-podium">
+                    <!-- Second place -->
+                    <div class="rank-item podium-rank second">
+                        <div class="team-name">X</div>
+                        <div class="rank-podium">
+                            <div class="rank-number">2</div>
+                        </div>
+                    </div>
+
+                    <!-- First place (tallest) -->
+                    <div class="rank-item podium-rank first">
+                        <div class="team-name">X</div>
+                        <div class="rank-podium">
+                            <div class="rank-number">1</div>
+                        </div>
+                    </div>
+
+                    <!-- Third place -->
+                    <div class="rank-item podium-rank third">
+                        <div class="team-name">X</div>
+                        <div class="rank-podium">
+                            <div class="rank-number">3</div>
+                        </div>
                     </div>
                 </div>
-                <div class="rank-card rank-3">
-                    <div class="rank-content">
-                        <div class="rank-number">3</div>
-                        <div class="rank-name">Team Beta</div>
-                    </div>
-                </div>
-                <div class="rank-card rank-4">
-                    <div class="rank-content">
-                        <div class="rank-number">4</div>
-                        <div class="rank-name">Team Gamma</div>
-                    </div>
-                </div>
-                <div class="rank-card rank-5">
-                    <div class="rank-content">
-                        <div class="rank-number">5</div>
-                        <div class="rank-name">Team Delta</div>
+
+                <!-- Side rankings for 5th place -->
+                <div class="side-rankings right-side">
+                    <div class="rank-item side-rank">
+                        <div class="team-name">X</div>
+                        <div class="rank-podium fifth">
+                            <div class="rank-number">5</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sponsors Section -->
-    <section id="sponsors" class="sponsors">
-        <div class="container">
-            <h2 class="section-title sponsors-title">Our Sponsors</h2>
-            <div class="sponsors-content">
-                
-                <div class="sponsor-category">
-                    <h3 class="category-title">Major Sponsors</h3>
-                    <div class="sponsor-grid major-sponsors">
-                        <div class="sponsor-item">
-                            <strong>MegaCorp Industries</strong>
-                        </div>
-                        <div class="sponsor-item">
-                            <strong>Global Tech Solutions</strong>
-                        </div>
-                        <div class="sponsor-item">
-                            <strong>Prime University Partners</strong>
-                        </div>
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="section">
+            <h2 class="section-title">Our Sponsors</h2>
+            
+            <div class="sponsors-category">
+                <h3 class="category-title">Major Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-logo major">
+                        <img src="FX.png" alt="FX Corporation">
                     </div>
-                </div>
-
-                <div class="sponsor-category">
-                    <h3 class="category-title">Concessionaires</h3>
-                    <div class="sponsor-grid concessionaires">
-                        <div class="sponsor-item">FoodHub Central</div>
-                        <div class="sponsor-item">Campus Cafe</div>
-                        <div class="sponsor-item">Quick Bites</div>
-                        <div class="sponsor-item">Fresh Drinks Co.</div>
-                        <div class="sponsor-item">Student Snacks</div>
-                    </div>
-                </div>
-
-                <div class="sponsor-category">
-                    <h3 class="category-title">Minor Sponsors</h3>
-                    <div class="sponsor-grid minor-sponsors">
-                        <div class="sponsor-item">Local Bookstore</div>
-                        <div class="sponsor-item">Campus Supplies</div>
-                        <div class="sponsor-item">Study Materials</div>
-                        <div class="sponsor-item">Print Shop</div>
-                        <div class="sponsor-item">Stationery Plus</div>
-                        <div class="sponsor-item">Tech Repairs</div>
-                    </div>
-                </div>
-
-                <div class="sponsor-category">
-                    <h3 class="category-title">Partners</h3>
-                    <div class="sponsor-grid partners">
-                        <div class="sponsor-item">City Council</div>
-                        <div class="sponsor-item">Alumni Association</div>
-                        <div class="sponsor-item">Student Government</div>
-                        <div class="sponsor-item">Parent Organization</div>
-                        <div class="sponsor-item">Community Board</div>
-                        <div class="sponsor-item">Media Partners</div>
+                    <div class="sponsor-logo major">
+                        <img src="global-inc-logo.png" alt="Global Inc">
                     </div>
                 </div>
             </div>
+
+            <div class="sponsors-category">
+                <h3 class="category-title">Partners</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-logo partner">
+                        <img src="partners/cmu.png" alt="Central Mindanao Univeristy">
+                    </div>
+                    <div class="sponsor-logo partner">
+                        <img src="partners/cmu_tale.png" alt="CMU Tale">
+                    </div>
+                    <div class="sponsor-logo partner">
+                        <img src="partners/sandiwa.png" alt="Sandiwa">
+                    </div>
+                </div>
+            </div>
+
+            <div class="sponsors-category">
+                <h3 class="category-title">Concessionaries</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-logo concessionary">
+                        <img src="food-co-logo.png" alt="Food Co">
+                    </div>
+                    <div class="sponsor-logo concessionary">
+                        <img src="drink-inc-logo.png" alt="Drink Inc">
+                    </div>
+                    <div class="sponsor-logo concessionary">
+                        <img src="snack-bar-logo.png" alt="Snack Bar">
+                    </div>
+                    <div class="sponsor-logo concessionary">
+                        <img src="catering-logo.png" alt="Catering Services">
+                    </div>
+                </div>
+            </div>
+
+            <div class="sponsors-category">
+                <h3 class="category-title">Minor Sponsors</h3>
+                <div class="sponsors-grid">
+                    <div class="sponsor-logo minor">
+                        <img src="shop-a-logo.png" alt="Shop A">
+                    </div>
+                    <div class="sponsor-logo minor">
+                        <img src="store-b-logo.png" alt="Store B">
+                    </div>
+                    <div class="sponsor-logo minor">
+                        <img src="brand-c-logo.png" alt="Brand C">
+                    </div>
+                    <div class="sponsor-logo minor">
+                        <img src="outlet-d-logo.png" alt="Outlet D">
+                    </div>
+                    <div class="sponsor-logo minor">
+                        <img src="mart-e-logo.png" alt="Mart E">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <button class="close-gallery" onclick="closeGallery()">&times;</button>
+        <div class="gallery-content">
+            <div class="gallery-image">
+                <button class="gallery-nav prev" onclick="prevImage()">&lt;</button>
+                <div id="galleryImageContent">Image Content</div>
+                <button class="gallery-nav next" onclick="nextImage()">&gt;</button>
+            </div>
+            <div class="gallery-caption">
+                <h3 id="galleryTitle">Announcement Title</h3>
+                <p id="galleryBody">Announcement body content goes here with detailed information about the announcement.</p>
+            </div>
         </div>
-    </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
