@@ -694,11 +694,8 @@ main {
     padding: 4rem 0;
     overflow: hidden;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
+
 
 /* Section title styling for ranking */
 #rankings .section-title {
@@ -714,17 +711,25 @@ main {
 }
 
 /* Keep the ranking container centered */
-.ranking-container {
-    max-width: 1200px;
+.rankings-content {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.ranking-podium-container {
+    display: flex;
+    align-items: flex-end; /* This is crucial - aligns all items to bottom */
     justify-content: center;
     gap: 2rem;
-    min-height: 500px;
-    position: relative;
-    z-index: 10;
+    width: 100%;
+    height: auto; /* Let it adjust to content */
 }
 
 .center-podium {
@@ -738,7 +743,7 @@ main {
 .side-rankings {
     display: flex;
     align-items: flex-end;
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 .rank-item {
@@ -1200,9 +1205,10 @@ main {
     }
     
     .side-rankings {
-        flex-direction: row;
-        gap: 2rem;
-        margin-top: 0;
+        display: flex;
+        align-items: flex-end; /* This ensures 4th and 5th align with the podium bottom */
+        margin-top: 0; /* Remove any margin-top that pushes them up */
+        height: 200px; /* Set a fixed height to match the tallest podium */
     }
     
     .podium-rank.first .rank-podium {
@@ -1233,8 +1239,10 @@ main {
     }
     
     .side-rank .rank-podium {
-        height: 60px;
-        width: 60px;
+        height: 80px;
+        width: 80px;
+        background: linear-gradient(135deg, #9ACD32, #7CB342);
+        margin-bottom: 0; /* Ensure no extra margin */
     }
     
     .side-rank .rank-number {
