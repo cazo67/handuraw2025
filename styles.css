@@ -1479,3 +1479,179 @@ html {
         border: 2px solid rgba(47, 79, 47, 0.3);
     }
 }
+
+/* Footer Styles - Add this to your styles.css file at the bottom */
+
+.footer {
+    background: linear-gradient(135deg, #2F4F2F 0%, #558B2F 50%, #9ACD32 100%);
+    color: white;
+    padding: 3rem 0 1rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+    font-weight: 700;
+}
+
+/* Brand Section */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-logos {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.footer-about p {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+/* Pages Section */
+.footer-pages ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-pages ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-pages ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-pages ul li a:hover {
+    color: #FFD700;
+    transform: translateX(5px);
+}
+
+/* Social Section */
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-link:hover {
+    background: #FFD700;
+    color: #2F4F2F;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.social-link.email:hover {
+    background: #FF6B6B;
+}
+
+.social-link.facebook:hover {
+    background: #1877F2;
+    color: white;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+    
+    .footer-logos {
+        justify-content: center;
+    }
+    
+    .footer-logo {
+        height: 50px;
+    }
+    
+    .footer-about p {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        gap: 1.5rem;
+    }
+    
+    .footer-logo {
+        height: 40px;
+    }
+    
+    .footer-about p {
+        font-size: 0.85rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+}
