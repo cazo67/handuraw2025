@@ -387,18 +387,33 @@ const announcements = [
             "#THRIVINGCMU<br>" +
             "#LeadtoServe",
         photos: ["announcement/call_for_entrep.jpg",],
-        date: "August 27, 2025",
+        date: "Posted: August 27, 2025",
         alt: "Registration Extended"
     },
     // Additional announcements can be uncommented as needed
-    // {
-    //     id: 3,
-    //     title: "Volunteer Program Launch",
-    //     body: "Join our volunteer program and be part of the championship experience! We are looking for enthusiastic individuals to help with event coordination, athlete support, and venue management. Volunteers will receive exclusive merchandise, meals, and certificates of appreciation.",
-    //     photos: ["announcement4.png", "announcement4b.png", "announcement4c.png", "announcement4d.png"],
-    //     date: "Posted: Dec 3, 2025",
-    //     alt: "Volunteer Program"
-    // },
+    {
+        id: 3,
+        title: "Accepted Student Entrepreneurs",
+        body: 
+        "Our talented student entrepreneurs have been selected to showcase their amazing crafts at the CMU-SSC Booth during the 115th Unified Foundation Day and Alumni Homecoming! 💚💛<br><br>" +
+        "1. Christine Grace Renoballes<br>" +
+        "2. Vine Vitorillo<br>" +
+        "3. Febbie Jane Villarama<br>" +
+        "4. Jane Patrick Gamutan<br>" +
+        "5. Micky Jean Salvacion<br>" +
+        "6. Kristine Ybasan<br>" +
+        "7. Greizel Mae Abeso<br>" +
+        "8. Dorothy Macahilo<br>" +
+        "9. Grace Adrigado<br>" +
+        "10. Kissy Anne Redilla<br><br>" +
+        "Congratulations to everyone! Let's support them as they showcase their crafts during this special event.<br><br>" +
+        "#HANDURAW2025<br>" +
+        "#THRIVINGCMU<br>" +
+        "#LeadtoServe",
+        photos: ["announcement/entrepreneurs_result.jpg"],
+        date: "Posted: September 3, 2025",
+        alt: "Accepted Student Entrepreneurs"
+    },
     // Additional announcement entries would go here...
 ];
 
