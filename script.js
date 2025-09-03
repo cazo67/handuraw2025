@@ -338,7 +338,7 @@ let slideshowTimer;
 function startSlideshow() {
     slideshowTimer = setInterval(() => {
         showSlide(currentSlideIndex + 2);
-    }, 5000);
+    }, 2500);
 }
 
 function stopSlideshow() {
