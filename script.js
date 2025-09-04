@@ -368,7 +368,7 @@ const announcements = [
         " unforgettable memories — and we want 𝐘𝐎𝐔 on stage! <br><br>Tag your bandmates, dust off those instruments, and get ready to bring the house down.\n 🎶🔥<br><br>" +
         " <a href='https://forms.gle/uHQKf445i3b7FgQ16' target='_blank'>Click here to register</a>", 
         photos: ["announcement/call_for_band_night.jpg"],
-        date: "Posted: August 26, 2025",
+        date: "Aug 26, 2025",
         alt: "New Training Facility"
     },
     {
@@ -387,7 +387,7 @@ const announcements = [
             "#THRIVINGCMU<br>" +
             "#LeadtoServe",
         photos: ["announcement/call_for_entrep.jpg",],
-        date: "Posted: August 27, 2025",
+        date: "Aug 27, 2025",
         alt: "Registration Extended"
     },
     // Additional announcements can be uncommented as needed
@@ -411,9 +411,31 @@ const announcements = [
         "#THRIVINGCMU<br>" +
         "#LeadtoServe",
         photos: ["announcement/entrepreneurs_result.jpg"],
-        date: "Posted: September 3, 2025",
+        date: "Sep 3, 2025",
         alt: "Accepted Student Entrepreneurs"
     },
+
+    {
+        id: 4,
+        title: "Handuraw 2025 Invitation",
+        body: 
+        "Have you ever felt the joy of celebrating where you've come from, while looking forward to where you're headed? 🤎🌾<br><br>" +
+        "This year, we come together once more to celebrate our shared journey — rich in tradition, triumph, and unity. From vibrant student-led events to the return of alumni carrying decades of memories, <b>HANDURAW 2025</b> is a living tribute to our past, present, and future.<br><br>" +
+        "As a proud [Year Level and Program] from [College], I, [Name], embrace this moment with hope, excitement, and the spirit of kinship.<br><br>" +
+        "Let's celebrate the harvest of our past and the promise of a thriving CMU. 🌱💚<br><br>" +
+        "DP Frame link:<br>" +
+        "<a href='https://funny-florentine-46b0b9.netlify.app'>https://funny-florentine-46b0b9.netlify.app</a><br>" +
+        "<a href='https://funny-florentine-46b0b9.netlify.app'>https://funny-florentine-46b0b9.netlify.app</a><br>" +
+        "<a href='https://funny-florentine-46b0b9.netlify.app'>https://funny-florentine-46b0b9.netlify.app</a><br><br>" +
+        "Handuraw 2025 Official Website:<br>" +
+        "<a href='https://handuraw2025.netlify.app/'>https://handuraw2025.netlify.app/</a><br><br>" +
+        "#HANDURAW2025<br>" +
+        "#ThrivingCMU",
+        photos: ["announcement/dp1.jpg", "announcement/dp2.jpg"],
+        date: "Sep 4, 2025",
+        alt: "Handuraw 2025 DP Blast"
+    }
+
     // Additional announcement entries would go here...
 ];
 
