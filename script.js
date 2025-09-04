@@ -417,7 +417,7 @@ const announcements = [
 
     {
         id: 4,
-        title: "Handuraw 2025 Invitation",
+        title: "DP Blast",
         body: 
         "Have you ever felt the joy of celebrating where you've come from, while looking forward to where you're headed? 🤎🌾<br><br>" +
         "This year, we come together once more to celebrate our shared journey — rich in tradition, triumph, and unity. From vibrant student-led events to the return of alumni carrying decades of memories, <b>HANDURAW 2025</b> is a living tribute to our past, present, and future.<br><br>" +
