@@ -434,7 +434,26 @@ const announcements = [
         photos: ["announcement/dp1.jpg", "announcement/dp2.jpg"],
         date: "Sep 4, 2025",
         alt: "Handuraw 2025 DP Blast"
+    },
+
+    {
+        id: 5,
+        title: "Official Poster Reveal",
+        body: 
+        "𝗖𝗠𝗨𝗮𝗻𝘀, 𝗮𝗿𝗲 𝘆𝗼𝘂 𝗿𝗲𝗮𝗱𝘆 𝘁𝗼 𝗳𝗮𝗰𝗲 𝘁𝗵𝗲 𝘂𝗻𝘁𝗼𝗹𝗱? 👻📽️<br><br>" +
+        "We are thrilled to unveil the chilling official posters for <b>Handuraw 2025: Short Film Competition!</b><br><br>" +
+        "Prepare to witness spine-tingling tales inspired by <b>true CMU campus horrors.</b> 🕯️<br><br>" +
+        "Mark your calendars this <b>September 19</b> where the halls you walk every day turn into scenes of the unforgettable and the unexplained!<br><br>" +
+        "Handuraw 2025 Official Website:<br>" +
+        "<a href='https://handuraw2025.netlify.app/'>https://handuraw2025.netlify.app/</a><br><br>" +
+        "#𝐇𝐀𝐍𝐃𝐔𝐑𝐀𝐖2025<br>" +
+        "#𝐓𝐡𝐫𝐢𝐯𝐢𝐧𝐠𝐂𝐌𝐔",
+        photos: ["announcement/poster/film_pub.jpg", "announcement/poster/CAS_CON.jpg", "announcement/poster/CISC_CBM.jpg", "announcement/poster/CFES_COED.jpg", "announcement/poster/CHE_CVM.jpg", "announcement/poster/COA_COE.jpg"],
+        date: "Sep 5, 2025",
+        alt: "Handuraw 2025 Horror Poster Reveal"
     }
+
+
 
     // Additional announcement entries would go here...
 ];
