@@ -451,7 +451,80 @@ const announcements = [
         photos: ["announcement/poster/film_pub.jpg", "announcement/poster/CAS_CON.jpg", "announcement/poster/CISC_CBM.jpg", "announcement/poster/CFES_COED.jpg", "announcement/poster/CHE_CVM.jpg", "announcement/poster/COA_COE.jpg"],
         date: "Sep 5, 2025",
         alt: "Handuraw 2025 Horror Poster Reveal"
+    },
+
+    {
+        id: 6,
+        title: "KN1SE: The Musical – Official Ticket Announcement",
+        body: 
+        "<i>Nostalgia aches to be felt when we’ve slowly lost ourselves in the present. When we’ve finally hit rock bottom, there's nothing we wish more than to revisit the youthful times we once had.</i><br><br>" +
+        "The play follows the story of Hiraya, a corporate employee juggling the demands of a high-powered job, the weight of withholding a breadwinner title, and a romance that is slowly falling apart. In this everyday quarter-life crisis, Hiraya longs for the ghost of her youth—of wanting to be fifteen again…or maybe have a dream realized in the next fifteen years.<br><br>" +
+        "Rediscover the girl you were, and remember the woman you are.<br><br>" +
+        "🎟 <b>TICKET PRICE:</b><br>" +
+        "General Admission – ₱100.00<br><br>" +
+        "📍 <b>DATE AND LOCATION OF THE PLAY:</b><br>" +
+        "September 17, 2025 (Wednesday | 6 PM)<br>" +
+        "CAS Auditorium, Central Mindanao University<br><br>" +
+        "Reserve your tickets online now—secure your seat before the curtain rises.<br>" +
+        "<a href='https://tinyurl.com/2sd3t33e'>https://tinyurl.com/2sd3t33e</a><br>" +
+        "<a href='https://tinyurl.com/2sd3t33e'>https://tinyurl.com/2sd3t33e</a><br>" +
+        "<a href='https://tinyurl.com/2sd3t33e'>https://tinyurl.com/2sd3t33e</a><br><br>" +
+        "#KN1SE:TheMusical<br>" +
+        "#ReDiscover<br>" +
+        "#CMU",
+        photos: ["announcement/kinse_tickets.jpg"],
+        date: "Sep 5, 2025",
+        alt: "KN1SE The Musical Official Poster"
+    },
+
+    {
+        id: 7,
+        title: "Meet the Stars of the Night! – Official Performer Lineup",
+        body: 
+        "<i>Lights, music, and pure Handuraw spirit—it's finally here! ✨🎶</i><br><br>" +
+        "Get ready for an unforgettable evening as the officially accepted performers take the stage at this year’s Handuraw Unified Foundation Day & Grand Alumni Homecoming Band Night! 🎤🔥<br><br>" +
+        "Expect a night filled with music, memories, and the energy of Handuraw like never before.<br><br>" +
+        "🌐 <b>OFFICIAL WEBSITE:</b><br>" +
+        "<a href='https://handuraw2025.netlify.app/'>https://handuraw2025.netlify.app/</a><br><br>" +
+        "🎉 <b>EVENT HIGHLIGHTS:</b><br>" +
+        "– Grand Alumni Homecoming<br>" +
+        "– Foundation Day Celebration<br>" +
+        "– Band Night Performances<br><br>" +
+        "#HANDURAW2025<br>" +
+        "#THRIVINGCMU<br>" +
+        "#LeadToServe",
+        photos: ["announcement/band_night_result.jpg"],
+        date: "Sep 6, 2025",
+        alt: "Handuraw 2025 Band Night Official Poster"
+
+    },
+    {
+        id: 8,
+        title: "Handuraw 2025 – Official Timeline of Activities",
+        body: 
+        "<i>One week. Countless memories. A celebration of legacy and community. 🎉✨</i><br><br>" +
+        "We are honored to present the official <b>Handuraw 2025 Timeline of Activities</b> — a week-long celebration marking the Unified Foundation Day & Grand Alumni Homecoming. Each milestone has been thoughtfully crafted to highlight the values, spirit, and enduring legacy of our beloved institution. 🌟<br><br>" +
+        "💫 <b>WHAT TO EXPECT:</b><br>" +
+        "– Meaningful ceremonies and traditions<br>" +
+        "– Cultural and creative showcases<br>" +
+        "– Alumni homecoming highlights<br>" +
+        "– A spirit of unity that brings us all together<br><br>" +
+        "More than just a series of events, Handuraw 2025 is our chance to reconnect with our roots, honor our shared journey, and rejoice in the future we continue to build together. ❤️<br><br>" +
+        "🌐 <b>OFFICIAL WEBSITE:</b><br>" +
+        "<a href='https://handuraw2025.netlify.app/'>https://handuraw2025.netlify.app/</a> ✅<br><br>" +
+        "#HANDURAW2025<br>" +
+        "#THRIVINGCMU<br>" +
+        "#LeadToServe",
+        photos: [
+        "announcement/evnt/evnt1.jpg",
+        "announcement/evnt/evnt2.jpg",
+        "announcement/evnt/evnt3.jpg",
+        "announcement/evnt/evnt4.jpg"
+        ],
+        date: "Sep 7, 2025",
+        alt: "Handuraw 2025 Official Timeline Poster"
     }
+
 
 
 
@@ -461,7 +534,7 @@ const announcements = [
 // Define additional events for expandable content
 const additionalEvents = [
     {
-        title: "Benchant",
+        title: "Bench Chant",
         meta: "Sep 19, 2025 | Univ Convention Center",
         description: "Watch Benchant, a vibrant showcase of chants, movements, and school spirit that will fire up the crowd.",
         heads: "Head: Kyle Antonette Gonzales",
