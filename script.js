@@ -523,6 +523,44 @@ const announcements = [
         ],
         date: "Sep 7, 2025",
         alt: "Handuraw 2025 Official Timeline Poster"
+    },
+    {
+        id: 9,
+        title: "Handuraw 2025 – Acquaintance Party",
+        body: 
+        "<i>Step into a night wrapped in gentle whispers of soft florals and sunlit memories. 🌾✨</i><br><br>" +
+        "Join us at the <b>Handuraw 2025 Acquaintance Party</b> — an evening filled with laughter, friendship, and timeless memories.<br><br>" +
+        "📅 <b>DATE & TIME:</b><br>" +
+        "September 19, 2025 (Friday | 4:00 PM – 10:30 PM)<br><br>" +
+        "📍 <b>VENUE:</b><br>" +
+        "University Convention Center<br><br>" +
+        "👗 <b>DRESS CODE:</b><br>" +
+        "Cozy, vintage-inspired pieces — flowing skirts, lace details, and touches of nature’s beauty.<br><br>" +
+        "Let’s make this evening bloom with laughter, light, and the magic only a cottagecore night can bring. 🌸<br><br>" +
+        "🌐 <b>OFFICIAL WEBSITE:</b><br>" +
+        "<a href='https://handuraw2025.netlify.app/'>https://handuraw2025.netlify.app/</a><br><br>" +
+        "#HANDURAW2025<br>" +
+        "#THRIVINGCMU<br>" +
+        "#LeadToServe",
+        photos: ["announcement/acquitance.jpg"],
+        date: "Sep 12, 2025",
+        alt: "Handuraw 2025 Acquaintance Party Poster"
+    },
+    {
+        id: 10,
+        title: "Handuraw 2025 – Show Your Colors!",
+        body: 
+        "<i>SHOW YOUR COLORS! 👕🎉</i><br><br>" +
+        "Get ready to light up the streets this <b>September 15, 2025</b> as we celebrate Unified Foundation Day & Grand Alumni Homecoming! 🌟<br><br>" +
+        "Each college will march in unity wearing their color-coded shirts during the grand parade — turning our campus into a vibrant sea of tradition and spirit. 💯✨<br><br>" +
+        "Let’s wear our colors proud, and show the world that once a part of this family, forever a part of this legacy. 💙💛❤️<br><br>" +
+        "#HANDURAW2025<br>" +
+        "#THRIVINGCMU<br>" +
+        "#LeadToServe",
+        photos: ["announcement/color_shirt.jpg"],
+        date: "Sep 14, 2025",
+        alt: "Handuraw 2025 Show Your Colors Parade Poster"
+
     }
 
 
